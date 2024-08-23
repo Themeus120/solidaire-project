@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:16.4
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=solidaire_api
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    ports:
+      - 5432:5432
+
+  cache:
+    image: redis:7.4
+    ports:
+      - 6379:6379
+
+  broker:
+    image: rabbitmq:3.13
+    volumes:
+      - ./data/broker:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      - RABBITMQ_DEFAULT_PASS=rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672

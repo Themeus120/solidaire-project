@@ -1,0 +1,12 @@
+{
+    "emmet.includeLanguages": {
+      "html": "html",
+      "django": "html"
+   },
+    "emmet.syntaxProfiles": {
+       "html": {
+          "self_closing_tag": true
+       }
+   }
+ }
+ 
